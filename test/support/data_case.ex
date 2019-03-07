@@ -16,20 +16,19 @@ defmodule Alo.DataCase do
 
   using do
     quote do
-      alias Alo.Repo
-
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
       import Alo.DataCase
+      import Alo.Factory
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Alo.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Alo.Repo.V5)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Alo.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Alo.Repo.V5, {:shared, self()})
     end
 
     :ok

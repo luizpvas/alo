@@ -8,7 +8,7 @@
 use Mix.Config
 
 config :alo,
-  ecto_repos: [Alo.Repo]
+  ecto_repos: [Alo.Repo.V4, Alo.Repo.V5]
 
 # Configures the endpoint
 config :alo, AloWeb.Endpoint,

@@ -8,12 +8,12 @@ defmodule Alo.Application do
   def start(_type, _args) do
     # List all child processes to be supervised
     children = [
-      # Start the Ecto repository
-      Alo.Repo,
+      # Start the Ecto repositories
+      Alo.Repo.V4,
+      Alo.Repo.V5,
+
       # Start the endpoint when the application starts
       AloWeb.Endpoint
-      # Starts a worker by calling: Alo.Worker.start_link(arg)
-      # {Alo.Worker, arg},
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

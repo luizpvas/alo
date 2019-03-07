@@ -26,10 +26,10 @@ defmodule AloWeb.ChannelCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Alo.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Alo.Repo.V5)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Alo.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Alo.Repo.V5, {:shared, self()})
     end
 
     :ok
